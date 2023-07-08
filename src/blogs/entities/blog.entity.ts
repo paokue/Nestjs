@@ -7,7 +7,10 @@ export class Blog {
   id: number;
 
   @Column()
-  url: string;
+  topic: string;
+
+  @Column({ default: 'nopic.png' })
+  photo: string;
 
   @ManyToOne(() => User, (user) => user.blogs)
   user: User;

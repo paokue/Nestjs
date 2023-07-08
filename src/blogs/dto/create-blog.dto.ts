@@ -1,3 +1,4 @@
 export class CreateBlogDto {
-    topic:string
+    topic: string;
+    photo: string;
 }
