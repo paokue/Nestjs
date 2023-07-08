@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Blog } from 'src/blogs/entities/blog.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity({
   name: 'user',
@@ -18,9 +19,13 @@ export class User {
   })
   email: string;
 
-  @Column()
+  @Column({ select: false })
   password: string;
 
   @Column({ default: true })
   permission: string;
+
+  // relation
+  @OneToMany(() => Blog, (blog) => blog.user)
+  blogs: Blog[];
 }
